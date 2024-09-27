@@ -23,7 +23,7 @@
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.1",
     "@electron-toolkit/utils": "^3.0.0",
-    "@mdxeditor/editor": "^3.11.5",
+    "@mdxeditor/editor": "^1.14.3",
     "fs-extra": "^11.2.0",
     "jotai": "^2.10.0"
   },
