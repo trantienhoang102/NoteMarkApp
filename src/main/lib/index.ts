@@ -2,7 +2,7 @@ import { appDirectoryName, fileEncoding } from '@shared/constants'
 import { NoteInfo } from '@shared/models'
 import { CreateNote, DeleteNote, GetNotes, ReadNote, WriteNote } from '@shared/types'
 import { dialog } from 'electron'
-import { ensureDir, readdir, readFile, stat, writeFile } from 'fs-extra'
+import { ensureDir, readdir, readFile, stat, writeFile,remove } from 'fs-extra'
 import { homedir } from 'os'
 import path from 'path'
 
@@ -97,5 +97,10 @@ export const deleteNote: DeleteNote = async (filename) => {
 
   if (response === 1) {
     console.info('Note deletion canceled')
+    return false
   }
+
+  console.info(`Deleting note: ${filename}`)
+  await remove(`${rootDir}/${filename}.md`)
+  return true
 }
